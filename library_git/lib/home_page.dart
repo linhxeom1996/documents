@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:linh_button/linh_button.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,8 +13,13 @@ class HomePage extends StatelessWidget {
         title: const Text("Create Lib"),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text('Helo'),
+      body: Center(
+        child: MyTextButton(
+          text: "Press",
+          onPressed: () {
+            log("press");
+          },
+        ),
       ),
     );
   }
