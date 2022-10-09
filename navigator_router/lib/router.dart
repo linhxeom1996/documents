@@ -15,9 +15,16 @@ class FluroRouterBase {
   );
 
   static Handler page2 = Handler(
-    handlerFunc: (context, params) => Page2(
-      text: params['text']![0],
-    ),
+    handlerFunc: (context, params) {
+      bool update = false;
+      if (params['update']![0] == "true") {
+        update = true;
+      }
+      return Page2(
+        text: params['text']![0],
+        update: update,
+      );
+    },
   );
 
   static void setupRouter() {
@@ -34,7 +41,7 @@ class FluroRouterBase {
     );
 
     router.define(
-      "/page2/:text",
+      "/page2/:text/:update",
       handler: page2,
       transitionType: TransitionType.cupertino,
     );

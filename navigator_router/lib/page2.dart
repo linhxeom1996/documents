@@ -3,7 +3,8 @@ import 'package:navigator_router/widget/text_base.dart';
 
 class Page2 extends StatelessWidget {
   final String text;
-  const Page2({super.key, required this.text});
+  final bool update;
+  const Page2({super.key, required this.text, required this.update});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class Page2 extends StatelessWidget {
       body: Center(
         child: Column(
           children: <Widget>[
-            TextBase(text: text),
+            TextBase(text: "$text : $update"),
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {},
