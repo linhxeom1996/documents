@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:navigator_router/main.dart';
 import 'package:navigator_router/page1.dart';
-import 'package:navigator_router/page2..dart';
+import 'package:navigator_router/page2.dart';
 
 class FluroRouterBase {
   static FluroRouter router = FluroRouter();
@@ -24,17 +24,19 @@ class FluroRouterBase {
     router.define(
       "/",
       handler: home,
-      // transitionType: TransitionType.inFromBottom,
+      transitionType: TransitionType.cupertino,
     );
 
     router.define(
       "/page1",
       handler: page1,
+      transitionType: TransitionType.cupertino,
     );
 
     router.define(
       "/page2/:text",
       handler: page2,
+      transitionType: TransitionType.cupertino,
     );
   }
 }
