@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:navigator_router/router.dart';
+import 'package:navigator_router/widget/text_base.dart';
 
 void main() {
+  FluroRouterBase.setupRouter();
   runApp(const MyApp());
 }
 
@@ -15,7 +18,31 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: '/',
+      onGenerateRoute: FluroRouterBase.router.generator,
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const TextBase(text: "Home Page"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: const TextBase(
+            text: "Page 1",
+          ),
+          onPressed: () {
+            Navigator.pushNamed(context, '/page1');
+          },
+        ),
+      ),
     );
   }
 }
